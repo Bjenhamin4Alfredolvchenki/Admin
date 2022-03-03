@@ -115,7 +115,10 @@
                                         <div>
                                             <span class="gh-cp-memberproduct-pricelabel">{{sub.price.nickname}}</span>
                                             &ndash;
-                                            {{#if sub.cancel_at_period_end}}
+                                            {{#if (eq sub.status "canceled")}}
+                                                <span class="gh-cp-memberproduct-renewal">Ended {{sub.validUntil}}</span>
+                                                <span class="gh-badge archived">Cancelled</span>
+                                            {{else if sub.cancel_at_period_end}}
                                                 <span class="gh-cp-memberproduct-renewal">Has access until {{sub.validUntil}}</span>
                                                 <span class="gh-badge archived">Cancelled</span>
                                             {{else}}
@@ -189,14 +192,16 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                    {{#if sub.cancel_at_period_end}}
-                                                        <button type="button" {{action "continueSubscription" sub.id}}>
-                                                            <span>Continue subscription</span>
-                                                        </button>
-                                                    {{else}}
-                                                        <button type="button" {{action "cancelSubscription" sub.id}}>
-                                                            <span class="red">Cancel subscription</span>
-                                                        </button>
+                                                    {{#if (not-eq sub.status "canceled")}}
+                                                        {{#if sub.cancel_at_period_end}}
+                                                            <button type="button" {{action "continueSubscription" sub.id}}>
+                                                                <span>Continue subscription</span>
+                                                            </button>
+                                                        {{else}}
+                                                            <button type="button" {{action "cancelSubscription" sub.id}}>
+                                                                <span class="red">Cancel subscription</span>
+                                                            </button>
+                                                        {{/if}}
                                                     {{/if}}
                                                     </li>
                                                 </GhDropdown>

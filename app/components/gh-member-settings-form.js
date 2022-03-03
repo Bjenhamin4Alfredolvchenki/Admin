@@ -66,9 +66,6 @@ export default class extends Component {
 
         for (let product of products) {
             let productSubscriptions = subscriptionData.filter((subscription) => {
-                if (subscription.status === 'canceled') {
-                    return false;
-                }
                 return subscription?.price?.product?.product_id === product.id;
             });
             product.subscriptions = productSubscriptions;
