@@ -1,8 +1,7 @@
-import moment from 'moment';
 import {Response} from 'ember-cli-mirage';
 import {authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
 import {beforeEach, describe, it} from 'mocha';
-import {blur, click, currentURL, fillIn, find, findAll} from '@ember/test-helpers';
+import {click, currentURL, fillIn, find, findAll} from '@ember/test-helpers';
 import {enableLabsFlag} from '../helpers/labs-flag';
 import {expect} from 'chai';
 import {setupApplicationTest} from 'ember-mocha';
