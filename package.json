@@ -34,7 +34,7 @@
     "@ember/render-modifiers": "2.0.4",
     "@ember/test-helpers": "2.6.0",
     "@glimmer/component": "1.0.4",
-    "@html-next/vertical-collection": "2.1.0",
+    "@html-next/vertical-collection": "4.0.2",
     "@joeattardi/emoji-button": "4.6.2",
     "@nexes/nql": "0.6.0",
     "@nexes/nql-lang": "0.0.1",
